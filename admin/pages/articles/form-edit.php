@@ -65,24 +65,24 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form role="form" action="update.php" method="post">
+        <form class="insert_form" id="insert_form" action="create.php" method="post" enctype="multipart/form-data">
           <div class="card-body">
 
             <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+              <label for="name">ชื่อเรื่อง</label>
+              <input type="text" class="form-control" id="title" name="title" placeholder="ชื่อเรื่อง" >
             </div>
 
             <div class="form-group">
-              <label for="sub_title">Sub title</label>
-              <input type="text" class="form-control" id="sub_title" name="sub_title" placeholder="Sub title">
+              <label for="sub_title">เรื่องย่อ</label>
+              <input type="text" class="form-control" id="detail" name="detail" placeholder="เรื่องย่อ" >
             </div>
 
             <div class="form-group">
-              <label>Upload Image</label>
+              <label>Upload Image Poster</label>
               <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="file" id="customFile">
-                  <label class="custom-file-label" for="customFile">Choose file</label>
+                  <input type="file" class="custom-file-input" name="file" id="customFile" >
+                  <label class="custom-file-label" for="customFile">Anime Poster</label>
               </div>
               <figure class="figure text-center d-none mt-2">
                   <img id="imgUpload" class="figure-img img-fluid rounded" alt="">
@@ -92,7 +92,7 @@
             <div class="card card-primary card-outline">
               <div class="card-header">
                 <h3 class="card-title">
-                  Create Contents
+                  SEO
                 </h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool btn-sm"
@@ -109,37 +109,125 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="form-group">
-              <label>Select a Tags</label>
-              <select class="form-control select2" multiple="multiple" data-placeholder="Select a Tags" style="width: 100%;">
-                <option value="html">html</option>
-                <option value="css">css</option>
-                <option value="javascript">javascript</option>
-                <option value="php">php</option>
-                <option value="mysql">mysql</option>
+              <label>Select a Category</label>
+              <select class="form-control select2" name="category[]" multiple="multiple" data-placeholder="Select a Category" style="width: 100%;">
+                <option value="ซับไทย">ซับไทย</option>
+                <option value="พากย์ไทย">พากย์ไทย</option>
+                <option value="เดอะมูฟวี่">เดอะมูฟวี่</option>
+                <option value="เดอะมูฟวี่">ยังไม่จบ</option>
+                <option value="เดอะมูฟวี่">จบแล้ว</option>
               </select>
             </div>
 
+            <div class="form-group">
+              <label>Select a Genre</label>
+              <select class="form-control select2" name="genre[]" multiple="multiple" data-placeholder="Select a Genre" style="width: 100%;">
+                <option value="Action">Action (ต่อสู้)</option>
+                <option value="Adventure">Adventure (ผจญภัย)</option>
+                <option value="Comedy">Comedy (ตลก)</option>
+                <option value="Demons">Demons (ปีศาจ)</option>
+                <option value="Drama">Drama (ดราม่า)</option>
+                <option value="Ecchi">Ecchi (ทะลึ่ง)</option>
+                <option value="Fantasy">Fantasy (แฟนตาซี)</option>
+                <option value="Game">Game (เกม)</option>
+                <option value="Harem">Harem (ฮาเร็ม)</option>
+                <option value="Historical">Historical (ประวัติศาสตร์)</option>
+                <option value="Horror">Horror (สยองขวัญ)</option>
+                <option value="Josei">Josei (เด็กผู้หญิง)</option>
+                <option value="Magic">Magic (เวทย์มนต์)</option>
+                <option value="Martial Arts">Martial Arts (ศิลปะการต่อสู้)</option>
+                <option value="Mecha">Mecha (หุ่นยนต์)</option>
+                <option value="Military">Military (ทหาร)</option>
+                <option value="Music">Music (เพลง)</option>
+                <option value="Mystery">Mystery (ลึกลับ)</option>
+                <option value="Parody">Parody (ล้อเลียน)</option>
+                <option value="Police">Police (ตำรวจ)</option>
+                <option value="Psychological">Psychological (จิตวิทยา)</option>
+                <option value="Romance">Romance (โรแมนติก)</option>
+                <option value="Samurai">Samurai (ซามูไร)</option>
+                <option value="School">School (โรงเรียน)</option>
+                <option value="Sci-Fi">Sci-Fi (ไซ-ไฟ)</option>
+                <option value="Seinen">Seinen (วัยรุ่น)</option>
+                <option value="Shoujo">Shoujo (สาวน้อย)</option>
+                <option value="Shoujo Ai">Shoujo Ai (ยูริ)</option>
+                <option value="Shounen">Shounen (หนุ่มน้อย)</option>
+                <option value="Shounen Ai">Shounen Ai (ยาโอย)</option>
+                <option value="Slice of Life">Slice of Life (ชีวิตประจำวัน)</option>
+                <option value="Space">Space (อวกาศ)</option>
+                <option value="Sports">Sports (กีฬา)</option>
+                <option value="Super Power">Super Power (พลังพิเศษ)</option>
+                <option value="Supernatural">Supernatural (เหนือธรรมชาติ)</option>
+                <option value="Thriller">Thriller (ตื่นเต้น)</option>
+                <option value="Vampire">Vampire (แวมไพร์)</option>
+              </select>
+            </div>
+          
+
+           <!-- <form class="insert-form" id="insert_form" method="post" action=""> -->
+           <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h3 class="card-title">
+                  Add Episode
+                </h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool btn-sm"
+                          data-widget="collapse"
+                          data-toggle="tooltip"
+                          title="Collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  
+               
+                 
+                  
+           
+                
+             <div class="input-field">
+               <table class="table table-bordered" id="table_field">
+                  <tr>
+                    <th>Anime-id <a href="list.php" target="_blank"><i class="fas fa-search"></i></a></th>
+                    <th>Episode Name</th>
+                    <th>Part</th>
+                    <th>Link Player</th>
+                  </tr>
+                 
+                  <tr>
+                    <td><input class="form-control" type="text" size="2"name="anime_id[]" required></td>
+                    <td><input class="form-control" type="text" size="45"name="episode_name[]" required></td>
+                    <td><input class="form-control" type="text" size="2" name="part[]" required></td>
+                    <td><input class="form-control" type="text" size="45" name="linkplayer[]" required></td>
+                    <td><input class="btn btn-success" type="button" name="add" id="add" value="Add"></td>
+                  </tr>
+               </table>
+             </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" name="save" id="save" class="btn btn-primary">Submit</button>
           </div>
         </form>
+
         <table class="table table-striped table-bordered text-center">
     <tr>
-        <th>Episode ID</th>
+        
         <th>Name</th>
         <th>Part</th>
         <th>Linkplayer</th>
 
     </tr>
     <?php 
-        $sql = "SELECT * FROM `episode` WHERE `episode_name` LIKE 'Boruto: Naruto Next Generations โบรูโตะ ตอนที่' ORDER BY `part` DESC";
+        $sql = "SELECT * FROM `episode` WHERE `episode_name` LIKE 'Boruto: Naruto Next Generations โบรูโตะ' ORDER BY `part` DESC";
         $result = mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($result)){?>
     <tr>
-        <td><?php echo $row['id'] ?></td>
         <td><?php echo $row['episode_name'] ?></td>
         <td><?php echo $row['part'] ?></td>
         <td><?php echo $row['linkplayer'] ?></td>
